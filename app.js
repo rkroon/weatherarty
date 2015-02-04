@@ -3,26 +3,8 @@
  */
 
 var config = require('./config');
-var express = require('express');
-var path = require('path');
-var http = require('http');
-var app = express();
-
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'ejs');
-app.use(express.favicon());
-app.use(express.logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded());
-app.use(express.methodOverride());
-app.use(app.router);
-app.use(require('less-middleware')(path.join(__dirname, 'public')));
-app.use(express.static(path.join(__dirname, 'public')));
-
-if ('development' == app.get('env')) {
-  app.use(express.errorHandler());
-}
+var express = require('express')
+var app = express()
 
 app.get('/', function(req, pageResult){
 
@@ -67,10 +49,15 @@ app.get('/', function(req, pageResult){
 	 	console.log("Lowest Temp:", lowestTemp);
 		console.log("Highest Chance of Rain:", chanceOfRain);	
 
-		pageResult.render('index', {sweaterLevel: lowestTemp , chanceOfRain: chanceOfRain});	 	
+		pageResult.send('index', {sweaterLevel: lowestTemp , chanceOfRain: chanceOfRain});	 	
 	});
 });
 
-http.createServer(app).listen(app.get('port'), function(){
-  console.log('Express server listening on port ' + app.get('port'));
-});
+var server = app.listen(process.env.PORT ? process.env.PORT : 3000, function () {
+
+  var host = server.address().address
+  var port = server.address().port
+
+  console.log('Example app listening at http://%s:%s', host, port)
+
+})
