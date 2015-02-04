@@ -9,8 +9,6 @@
     "express": "*",
     "ejs": "*",
     "less-middleware": "*",
-    "forecast.io": "*",
-    "time":"*",
-    "moment":"*"
+    "forecast.io": "*"
   }
 }

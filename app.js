@@ -39,13 +39,8 @@ app.get('/', function(req, pageResult){
 	var forecast = new Forecast(forecastOptions);
 
     var currentTemperature, lowestTemp, chanceOfRain;
-	var time = require('time');
-	var dateTime = new time.Date();
 
-	dateTime.setTimezone('America/New_York');
-	
-	console.log("Current NYC Time: " + dateTime); 
-	forecast.getAtTime(latitude, longitude, ((dateTime.getTime()/1000).toFixed(0)), function (err, res, data) {
+	forecast.getAtTime(latitude, longitude, new Date(), function (err, res, data) {
 	  if (err) throw err;
 		console.log('Updating WEATHER DATA');
 	  	console.log('Current Temperature: ' + util.inspect(data.currently.temperature));
