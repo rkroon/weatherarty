@@ -49,7 +49,7 @@ app.get('/', function(req, pageResult){
 	 	console.log("Lowest Temp:", lowestTemp);
 		console.log("Highest Chance of Rain:", chanceOfRain);	
 
-		pageResult.send('index', {sweaterLevel: lowestTemp , chanceOfRain: chanceOfRain});	 	
+		pageResult.send('index', ""+lowestTemp+","+chanceOfRain);	 	
 	});
 });
 
