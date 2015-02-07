@@ -49,37 +49,38 @@ app.get('/', function(req, pageResult){
 	 	console.log("Lowest Temp:", lowestTemp);
 		console.log("Highest Chance of Rain:", chanceOfRain);	
 		var sweaterLevel = 0;
-		if(lowestTemp < 0){
-sweaterLevel = 0;
-} else if(lowestTemp < 10) {
-sweaterLevel = 1;
-}
-else if(lowestTemp < 20) {
-sweaterLevel = 2;
-}
-else if(lowestTemp < 30) {
+		
+		if(lowestTemp < -30){
+		sweaterLevel = 0;
+		} else if(lowestTemp < 0) {
+		sweaterLevel = 1;
+		}
+		else if(lowestTemp < 15) {
+		sweaterLevel = 2;
+		}
+		else if(lowestTemp < 30) {
 
-sweaterLevel = 3;
-}
-else if(lowestTemp < 40) {
-sweaterLevel = 4;
-}
-else if(lowestTemp < 50) {
-sweaterLevel = 5;
-}
-else if(lowestTemp < 60) {
-sweaterLevel = 6;
-}
+		sweaterLevel = 3;
+		}
+		else if(lowestTemp < 40) {
+		sweaterLevel = 4;
+		}
+		else if(lowestTemp < 50) {
+		sweaterLevel = 5;
+		}
+		else if(lowestTemp < 60) {
+		sweaterLevel = 6;
+		}
 
-else if(lowestTemp < 70) {
-sweaterLevel = 7;
-}
-else if(lowestTemp < 80) {
-sweaterLevel = 8;
-} else{
-sweaterLevel = 9
-}
-               
+		else if(lowestTemp < 70) {
+		sweaterLevel = 7;
+		}
+		else if(lowestTemp < 80) {
+		sweaterLevel = 8;
+		} else{
+		sweaterLevel = 9
+		}
+		               
 
 
 
