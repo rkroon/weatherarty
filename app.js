@@ -89,10 +89,10 @@ lowestTemp = lowestTemp + 30;
 		chanceOfRain = chanceOfRain * 10;
 		chanceOfRain = chanceOfRain % 10;
 
-		console.log("Sweater Level: ",sweaterLevel);
-		console.log("RainChance: ",chanceOfRain);
+		console.log("Sweater Level: ",Math.round(sweaterLevel);
+		console.log("RainChance: ",Math.round(chanceOfRain));
 	
-		pageResult.status("200").send('index', ""+ sweaterLevel+","+ chanceOfRain);	 		 	
+		pageResult.status("200").send('index', ""+ Math.round(sweaterLevel)+","+ Math.round(chanceOfRain));	 		 	
 	});
 });
 
