@@ -91,8 +91,8 @@ lowestTemp = lowestTemp + 30;
 
 		console.log("Sweater Level: ",sweaterLevel);
 		console.log("RainChance: ",chanceOfRain);
-
-		pageResult.send('index', ""+ sweaterLevel+","+ chanceOfRain);	 		 	
+	
+		pageResult.status("200").send('index', ""+ sweaterLevel+","+ chanceOfRain);	 		 	
 	});
 });
 
