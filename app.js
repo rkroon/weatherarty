@@ -48,12 +48,51 @@ app.get('/', function(req, pageResult){
 	 	currentTemp = util.inspect(data.currently.temperature);		
 	 	console.log("Lowest Temp:", lowestTemp);
 		console.log("Highest Chance of Rain:", chanceOfRain);	
+		var sweaterLevel = 0;
+		if(lowestTemp < 0){
+sweaterLevel = 0;
+} else if(lowestTemp < 10) {
+sweaterLevel = 1;
+}
+else if(lowestTemp < 20) {
+sweaterLevel = 2;
+}
+else if(lowestTemp < 30) {
 
-		pageResult.send('index', {sweaterLevel: lowestTemp , chanceOfRain: chanceOfRain});	 	
+sweaterLevel = 3;
+}
+else if(lowestTemp < 40) {
+sweaterLevel = 4;
+}
+else if(lowestTemp < 50) {
+sweaterLevel = 5;
+}
+else if(lowestTemp < 60) {
+sweaterLevel = 6;
+}
+
+else if(lowestTemp < 70) {
+sweaterLevel = 7;
+}
+else if(lowestTemp < 80) {
+sweaterLevel = 8;
+} else{
+sweaterLevel = 9
+}
+               
+
+
+
+lowestTemp = lowestTemp + 30;
+		lowestTemp = lowestTemp % 10;
+		chanceOfRain = chanceOfRain * 10;
+		chanceOfRain = chanceOfRain % 10;
+
+		pageResult.send('index', ""+ sweaterLevel+","+ chanceOfRain);	 	
 	});
 });
 
-var server = app.listen(process.env.PORT ? process.env.PORT : 3000, function () {
+var server = app.listen(80, function () {
 
   var host = server.address().address
   var port = server.address().port
