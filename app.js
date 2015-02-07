@@ -89,6 +89,7 @@ lowestTemp = lowestTemp + 30;
 		chanceOfRain = chanceOfRain % 10;
 
 		pageResult.send('index', ""+ sweaterLevel+","+ chanceOfRain);	 	
+		pageResult.send('index', ""+lowestTemp+","+chanceOfRain);	 	
 	});
 });
 
